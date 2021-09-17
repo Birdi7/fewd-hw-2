@@ -1,36 +1,54 @@
 import "./App.css";
 import { useState } from "react";
+import Footer from "./footer";
+import Header from "./header";
+import { LoginForm, RegisterForm } from "./userform";
+import logo from "./logo.png";
 
-function Main() {
-  const [state, setState] = useState({ inp: "", submitted: "" });
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-  function HandleSubmit(event) {
-    event.preventDefault();
+function Home() {
+  // return (
+  //   <h2>  home page </h2>
+  // );
+  return <Login />;
+}
 
-    setState({ submitted: state.inp, inp: "" });
-  }
+function Login() {
+  return <LoginForm />;
+}
 
+function Register() {
+  return <RegisterForm />;
+}
+
+function AppContent() {
   return (
-    <form onSubmit={HandleSubmit}>
-      <label>
-        <p> Name: {state.submitted} </p>
-        <input
-          type="text"
-          name="name"
-          onChange={(event) => setState({ ...state, inp: event.target.value })}
-        />
-      </label>
-      <input type="submit" value="Submit" />
-    </form>
+    <Router>
+      <div>
+        <Header logo={logo} />
+
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Main />
-      </header>
+      <AppContent />
+      <Footer />
     </div>
   );
 }

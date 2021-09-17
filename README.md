@@ -1,4 +1,30 @@
-# Getting Started with Create React App
+https://prettier.io/docs/en/install.html
+https://formik.org or react-hook-form — forms
+https://react-hook-form.com/get-started/#Applyvalidation — form
+
+### description
+
+You should build project from scratch for react development. Your application should have ability to register user and login. For authorized users application should display secret persons. How to style and display elements is your choice, but all data comes from API should be displayed.
+
+API is available as scratch server in /server/index.js. Just run it in terminal by node /server/index.js
+
+undone
+
+- Custom webpack config
+- header with any png logo (logo should be bundled with webpack), title and links to login and register
+
+- Custom babel config
+
+- http requests to given API
+- for authorized user display secret persons on home page
+
+done
+
+- footer with your innopolis email
+- css-modules or styled-components
+- Routes for login and register
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,4 +93,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `yarn build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
