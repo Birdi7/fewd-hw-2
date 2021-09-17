@@ -89,7 +89,7 @@ module.exports = {
     ],
   },
   mode: "development",
-  externals: ["react"],
+  // externals: ["react"],
   devtool: "cheap-module-source-map",
   plugins: [
     new HtmlWebpackPlugin({
