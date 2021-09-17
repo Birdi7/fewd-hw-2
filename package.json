@@ -21,7 +21,7 @@
     "eject": "react-scripts eject",
     "lint": "yarn prettier --write .",
     "prepare": "husky install",
-    "build:dev": "webpack --mode=development",
+    "build:dev": "BABEL_ENV=development webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
     "serve": "webpack serve"

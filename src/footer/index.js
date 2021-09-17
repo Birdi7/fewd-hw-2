@@ -1,4 +1,5 @@
 import FooterWrapper from "./index.styles";
+import React from "react";
 
 function FooterContent() {
   return (

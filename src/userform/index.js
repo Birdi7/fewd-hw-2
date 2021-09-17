@@ -1,4 +1,5 @@
 import UserFormWrapper from "./index.styles";
+import React from "react";
 
 function UserFormContent({ state }) {
   const submitText = state === "login" ? "Login" : "Register";
