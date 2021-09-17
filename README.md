@@ -1,6 +1,8 @@
-https://prettier.io/docs/en/install.html
-https://formik.org or react-hook-form — forms
-https://react-hook-form.com/get-started/#Applyvalidation — form
+just for me
+
+- https://prettier.io/docs/en/install.html
+- https://formik.org or react-hook-form — forms
+- https://react-hook-form.com/get-started/#Applyvalidation — form
 
 ### description
 
