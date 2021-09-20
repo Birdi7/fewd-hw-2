@@ -17,12 +17,12 @@ API is available as scratch server in /server/index.js. Just run it in terminal 
 
 undone
 
+done
+
 - header with any png logo (logo should be bundled with webpack), title and links to login and register
 
 - http requests to given API
 - for authorized user display secret persons on home page
-
-done
 
 - footer with your innopolis email
 - css-modules or styled-components
