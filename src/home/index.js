@@ -1,27 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getInfo } from "../servers";
+import { DataEntryWrapper } from "./index.styles";
 
 function DataEntry({ id, name, email, avatar, address, description }) {
-  return (
+  const entry = (
     <div>
-      <p>{id}</p>
+      <p>ID — {id}</p>
       <p>{name}</p>
       <p>{email}</p>
-      <p>{avatar}</p>
+      <img src={avatar} alt="avatar" />
       <p>{address}</p>
       <p>{description}</p>
     </div>
   );
+  return <DataEntryWrapper> {entry}</DataEntryWrapper>;
 }
 
 function Home() {
   const [info, setInfo] = useState([]);
-
-  getInfo()
-    .then(({ data }) => setInfo(data))
-    .catch((_) => {
-      setInfo([]);
-    });
+  useEffect(() => {
+    getInfo()
+      .then(({ data }) => setInfo(data))
+      .catch((_) => {
+        setInfo([]);
+      });
+  }, []);
 
   console.log("info", info);
 
@@ -31,9 +34,7 @@ function Home() {
 
       {!info && <h2> No content </h2>}
 
-      {/* { info && (
-                <h2> some content: {JSON.stringify(info, null, 2)} </h2>
-            )} */}
+      {info && info.map(DataEntry)}
     </div>
   );
 }

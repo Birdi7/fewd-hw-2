@@ -17,6 +17,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "start": "BROWSER='google chrome' react-scripts start",
     "build": "BABEL_ENV=production webpack --mode=production --node-env=production",
     "build-react": "react-scripts build",
     "test": "react-scripts test",
@@ -26,7 +27,7 @@
     "build:dev": "BABEL_ENV=development webpack --mode=development",
     "build:prod": "BABEL_ENV=development webpack --mode=production --node-env=production",
     "watch": "BABEL_ENV=development webpack --watch",
-    "serve": "BROWSER='google chrome' BABEL_ENV=development webpack serve",
+    "serve": "BABEL_ENV=development webpack serve",
     "run-server": "node backend/server/index.js"
   },
   "eslintConfig": {
