@@ -8,6 +8,7 @@ function Header({ logo }) {
     // </header>
     <header className="App-header">
       <img src={logo} alt="logo" />
+      <h3> This is Egor's great app for full grade on hw2</h3>
       <nav>
         <ul>
           <li>

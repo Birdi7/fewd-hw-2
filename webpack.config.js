@@ -73,7 +73,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|ico)$/i,
         use: {
           loader: "file-loader",
         },
@@ -89,12 +89,12 @@ module.exports = {
     ],
   },
   mode: "development",
-  // externals: ["react"],
   devtool: "cheap-module-source-map",
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public/index.html"),
       inject: true,
+      favicon: "./public/favicon.ico",
     }),
   ],
 };

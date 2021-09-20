@@ -1,47 +1,94 @@
-import UserFormWrapper from "./index.styles";
-import React from "react";
+import { UserFormWrapper } from "./index.styles";
+import { registerUser, performLogin } from "../servers";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import { useState } from "react";
 
-function UserFormContent({ state }) {
-  const submitText = state === "login" ? "Login" : "Register";
-  const inputStyle = {
-    "margin-top": "10px",
-  };
-  const labelStyle = {
-    "margin-right": "10px",
-  };
-
+function FormMessage({ error }) {
   return (
-    <>
-      <label>
-        <span style={labelStyle}> Name: </span>
-        <input type="text" name="name" />
-      </label>
-
-      <label>
-        <span style={labelStyle}> Surname: </span>
-        <input type="text" name="surname" style={inputStyle} />
-      </label>
-
-      <input type="submit" value={submitText} style={inputStyle} />
-    </>
+    <div style={{ color: "red" }}>
+      {!error && <p> User is already exists or </p>}
+      <p> {error}</p>
+    </div>
   );
 }
 
-function UserForm({ state }) {
+function UserFormContent({ state, callback }) {
+  const submitText = state === "login" ? "Login" : "Register";
+  let [message, setMessage] = useState("");
+
+  const onSubmitHandler = async (values) => {
+    console.log(JSON.stringify(values, null, 2));
+    console.log(callback);
+    const { login, password } = values;
+    const response = await callback(login, password);
+    setMessage("Action performed");
+
+    console.log("response.status");
+    console.log(response.status);
+    console.log("result");
+    console.log(JSON.stringify(response, null, 2));
+    return response;
+  };
+
+  const form = (
+    <Formik
+      initialValues={{
+        login: "me",
+        password: "123",
+      }}
+      onSubmit={async (values) =>
+        onSubmitHandler(values).catch((error) => {
+          const response = error.response;
+          if (response.status === 400) {
+            setMessage(response.data.message);
+          }
+        })
+      }
+      validate={(values) => {
+        const errors = {};
+        if (!values.login) {
+          errors.login = "Login is required!";
+        }
+        if (!values.password) {
+          errors.password = "Password is required!";
+        }
+        return errors;
+      }}
+    >
+      <Form>
+        <label htmlFor="login">First Name</label>
+        <Field id="login" name="login" placeholder="Jane" />
+        <ErrorMessage name="login">
+          {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+        </ErrorMessage>
+
+        <label htmlFor="password">Password</label>
+        <Field id="password" name="password" />
+        <ErrorMessage name="password">
+          {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+        </ErrorMessage>
+
+        <button type="submit">Submit</button>
+      </Form>
+    </Formik>
+  );
+
   return (
     <UserFormWrapper>
-      <UserFormContent state={state} />
+      <div>
+        <h1>{submitText}</h1>
+        {form}
+
+        {message && <FormMessage error={message} />}
+      </div>
     </UserFormWrapper>
   );
 }
 
 export function LoginForm() {
-  return <UserForm state="login" />;
+  return <UserFormContent state="login" callback={performLogin} />;
 }
 
 export function RegisterForm() {
-  return <UserForm state="register" />;
+  return <UserFormContent state="register" callback={registerUser} />;
 }
-
-// export default LoginForm;
-// export default RegisterForm;

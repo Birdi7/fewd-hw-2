@@ -1,11 +1,7 @@
 import styled from "styled-components";
 
-// TODO: make good
-// TODO: how to make horizonal?
-const UserFormWrapper = styled.form`
+export const UserFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 10px;
 `;
-
-export default UserFormWrapper;

@@ -1,18 +1,14 @@
 import "./App.css";
-import { useState } from "react";
 import Footer from "./footer";
 import Header from "./header";
+import Home from "./home";
 import { LoginForm, RegisterForm } from "./userform";
 import logo from "./logo.png";
-import React from "react";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-function Home() {
-  // return (
-  //   <h2>  home page </h2>
-  // );
-  return <Login />;
+function HomePage() {
+  return <Home />;
 }
 
 function Login() {
@@ -24,6 +20,9 @@ function Register() {
 }
 
 function AppContent() {
+  // TODO: doesn't work when reload
+  // http://localhost:8080/login
+  // idk why but bundle is not resolved
   return (
     <Router>
       <div>
@@ -37,7 +36,7 @@ function AppContent() {
             <Register />
           </Route>
           <Route path="/">
-            <Home />
+            <HomePage />
           </Route>
         </Switch>
       </div>

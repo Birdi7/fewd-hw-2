@@ -4,6 +4,11 @@ just for me
 - https://formik.org or react-hook-form — forms
 - https://react-hook-form.com/get-started/#Applyvalidation — form
 
+#### TODO: READ
+
+https://reactjs.org/docs/hooks-intro.html
+https://reactjs.org/docs/lifting-state-up.html
+
 ### description
 
 You should build project from scratch for react development. Your application should have ability to register user and login. For authorized users application should display secret persons. How to style and display elements is your choice, but all data comes from API should be displayed.
@@ -12,10 +17,7 @@ API is available as scratch server in /server/index.js. Just run it in terminal 
 
 undone
 
-- Custom webpack config
 - header with any png logo (logo should be bundled with webpack), title and links to login and register
-
-- Custom babel config
 
 - http requests to given API
 - for authorized user display secret persons on home page
@@ -25,6 +27,8 @@ done
 - footer with your innopolis email
 - css-modules or styled-components
 - Routes for login and register
+- Custom webpack config
+- Custom babel config
 
 <!-- # Getting Started with Create React App
 
