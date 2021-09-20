@@ -39,7 +39,7 @@ function UserFormContent({ state, callback }) {
       onSubmit={async (values) =>
         onSubmitHandler(values).catch((error) => {
           const response = error.response;
-          if (response.status === 400) {
+          if (response.status === 400 || response.status === 401) {
             setMessage(response.data.message);
           }
         })

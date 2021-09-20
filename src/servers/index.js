@@ -10,7 +10,7 @@ export async function registerUser(login, password) {
   });
 }
 
-async function performLoginApi(login, password) {
+function performLoginApi(login, password) {
   return axios.post("http://localhost:3003/login", {
     login: login,
     password: password,
@@ -18,7 +18,7 @@ async function performLoginApi(login, password) {
 }
 
 export async function performLogin(login, password) {
-  performLoginApi(login, password).then((value) => {
+  return performLoginApi(login, password).then((value) => {
     storage.setItem("Authorization", value.data.token);
   });
 }
