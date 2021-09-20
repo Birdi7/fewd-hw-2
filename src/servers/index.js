@@ -24,9 +24,7 @@ export async function performLogin(login, password) {
 }
 
 export function getInfo() {
-  let v = [];
-
-  axios
+  return axios
     .get("http://localhost:3003/info", {
       headers: {
         Authorization: storage.getItem("Authorization"),
@@ -34,12 +32,10 @@ export function getInfo() {
     })
     .then((val) => {
       console.log("success while getting info!, val=", val);
-      v = val;
+      return val;
     })
     .catch((_) => {
       console.log("error while getting info!");
-      v = [];
+      return [];
     });
-
-  return v;
 }

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { getInfo } from "../servers";
 
 function DataEntry({ id, name, email, avatar, address, description }) {
@@ -14,21 +15,25 @@ function DataEntry({ id, name, email, avatar, address, description }) {
 }
 
 function Home() {
-  const info = getInfo();
+  const [info, setInfo] = useState([]);
+
+  getInfo()
+    .then(({ data }) => setInfo(data))
+    .catch((_) => {
+      setInfo([]);
+    });
 
   console.log("info", info);
 
   return (
     <div>
       <h1> Home page</h1>
-      {/*         
-        {!info && (
-            <h2> No content </h2>
-        )} */}
 
-      {/* {info && (
-            info.map((val) =>  { DataEntry(...val) } )
-        )} */}
+      {!info && <h2> No content </h2>}
+
+      {/* { info && (
+                <h2> some content: {JSON.stringify(info, null, 2)} </h2>
+            )} */}
     </div>
   );
 }
