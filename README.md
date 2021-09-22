@@ -1,5 +1,5 @@
 just for me
-
+— https://dev.to/nikhilkumaran/don-t-use-create-react-app-how-you-can-set-up-your-own-reactjs-boilerplate-43l0
 - https://prettier.io/docs/en/install.html
 - https://formik.org or react-hook-form — forms
 - https://react-hook-form.com/get-started/#Applyvalidation — form
