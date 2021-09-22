@@ -1,3 +1,11 @@
+# FEWD hw2
+
+Note: the webpack version in the `package.json` is doesn't work with
+`react-scripts`. So, you can use `yarn serve` and `yarn build`, but `yarn start` won't work. If you want to start project with `react-scripts`, consider installing `webpack==4.44.2 && webpack-dev-server==3.11.1`
+
+Also, the if you go directly to the `localhost:8080/login`, it doesn't work.
+TODO: ask tutor about this problem
+
 just for me
 — https://dev.to/nikhilkumaran/don-t-use-create-react-app-how-you-can-set-up-your-own-reactjs-boilerplate-43l0
 - https://prettier.io/docs/en/install.html
