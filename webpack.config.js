@@ -97,4 +97,7 @@ module.exports = {
       favicon: "./public/favicon.ico",
     }),
   ],
+  devServer: {
+    historyApiFallback: true,
+  },
 };
