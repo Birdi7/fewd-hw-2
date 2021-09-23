@@ -20,9 +20,6 @@ function Register() {
 }
 
 function AppContent() {
-  // TODO: doesn't work when reload
-  // http://localhost:8080/login
-  // idk why but bundle is not resolved
   return (
     <Router>
       <div>
